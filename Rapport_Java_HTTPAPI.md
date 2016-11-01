@@ -24,3 +24,7 @@ HTTPClient, et extraire l'archive.
 Ceci fait, dans Eclipse, aller dans `Project > Properties > Java Build Path`
 et sélectionner l'option `Add external JARs...`, puis ajouter les `.jar` de
 l'archive extraite.
+
+# Requêtes à Elasticsearch : API Search
+
+La documentation est disponible [ici](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html "API Search").
