@@ -109,7 +109,7 @@ Installons à présent Logstash.
 
 ## Logstash 5.0
 
-Logstash est un outil qui permet de "formater" les fichiers que l'on va indexer. Il faut
+Logstash est un outil qui permet de "formater" les fichiers que l'on va indexer.
 
 ### Installation
 
