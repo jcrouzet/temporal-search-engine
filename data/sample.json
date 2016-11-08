@@ -1,0 +1,67 @@
+{
+            'events' : [
+							{
+							'start': new Date(2013, 5, 4),
+							'title': 'Article A1',
+							'description': 'Description',
+							'link': 'Lien vers le document'
+							},
+
+							{
+							'start':  new Date(2013, 4, 16),
+							'end':  new Date(2013, 5, 7),
+							'title': 'Evenement A',
+							'durationEvent' : true,
+							'description': 'Evenement A',
+							'link': ''
+							},
+							
+							{
+							'start': new Date(2014, 12, 9),
+							'title': 'Article B1',
+							'description': 'Description',
+							'link': 'Lien vers le document'
+							},
+
+							{
+							'start': new Date(2014, 11, 25),
+							'end':  new Date(2014, 12, 25),
+							'title': 'Evenement B',
+							'durationEvent' : true,
+							'description': 'Evenement B',
+							'link': ''
+							},
+							
+							{
+							'start': new Date(2014, 12, 31),
+							'title': 'Article C1',
+							'description': 'Description',
+							'link': 'Lien vers le document'
+							},
+
+							{
+							'start':  new Date(2014, 12, 22),
+							'end':  new Date(2015, 1, 7),
+							'title': 'Evenement C',
+							'durationEvent' : true,
+							'description': 'Evenement C',
+							'link': ''
+							},
+							
+							{
+							'start': new Date(2015, 8, 20),
+							'title': 'Article D1',
+							'description': 'Description',
+							'link': 'Lien vers le document'
+							},
+
+							{
+							'start':  new Date(2015, 8, 16),
+							'end':  new Date(2015, 8, 28),
+							'title': 'Evenement D',
+							'durationEvent' : true,
+							'description': 'Evenement D',
+							'link': ''
+							}
+          ]
+}
