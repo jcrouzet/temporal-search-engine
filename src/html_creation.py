@@ -1,7 +1,7 @@
 import os
 
 def touch(path):
-    with open(path, 'a'):
+    with open(path, 'w'):
         os.utime(path, None)
 
 def coppy(r,w):
@@ -12,10 +12,10 @@ def coppy(r,w):
 
 def html_creation(res_json):
 
-    touch('../results/page.html')
-    begin = open('../results/begin.txt','r')
-    end = open('../results/end.txt','r')
-    f = open('../results/page.html', 'w')
+    touch('./results/page.html')
+    begin = open('./results/begin.txt','r')
+    end = open('./results/end.txt','r')
+    f = open('./results/page.html', 'w')
     coppy(begin,f)
     f.write(res_json)
     coppy(end,f)

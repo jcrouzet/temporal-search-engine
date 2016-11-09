@@ -5,7 +5,7 @@ import numpy as np
 
 from query import *
 from events_detection import *
-from timeline_json1 import *
+from timeline_json import *
 from html_creation import *
 
 class Usage(Exception):
@@ -18,7 +18,6 @@ def main(argv=None):
 
     if len(argv) != 4:
         print >>sys.stderr, "Usage: " + argv[0] + " <query> <date_debut> <date_fin>"
-        print >>sys.stderr, "où les dates sont au format \"yyyy-MM-dd\""
         return 2
 
     hist, dates = query_hist(argv[1],argv[2],argv[3])
