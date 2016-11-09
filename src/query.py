@@ -1,13 +1,13 @@
 from elasticsearch import Elasticsearch
 import numpy as np
 
-def query_hist(query):
+def query_hist(query, debut, fin):
     """
     """
     es = Elasticsearch()
     res = es.search(index="spliine",
                 doc_type="article",
-                body='{"query":{"match":{"article":"'+ query +'"}},"size":0,"aggregations":{"date_hist":{"date_histogram":{"field":"date_art","interval":"day", "format" : "yyyy-MM-dd"}}}}')
+                body='{"query":{"bool":{"must":{"range":{"date_art":{"gte":"'+debut+'","lte":"'+fin+'"}}},"filter":{"query_string":{"query":"'+query+'","default_operator":"AND"}}}},"size":0,"aggregations":{"date_hist":{"date_histogram":{"field":"date_art","interval":"day","format":"yyyy-MM-dd"}}}}')
 
 
     results = res['aggregations']['date_hist']['buckets']
