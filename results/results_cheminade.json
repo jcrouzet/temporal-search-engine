@@ -1,0 +1,214 @@
+{
+ "events": [
+  {
+   "end": "2013-07-05", 
+   "description": "Evenement entre 2013-07-03 et 2013-07-05", 
+   "title": "2013-07-03 / 2013-07-05", 
+   "start": "2013-07-03", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2013-07-04", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=e3a6b5f9d4187d752d0bf71c42466c55", 
+   "description": "Score de : 1.0", 
+   "title": "e3a6b5f9d4187d752d0bf71c42466c55"
+  }, 
+  {
+   "end": "2013-11-14", 
+   "description": "Evenement entre 2013-11-13 et 2013-11-14", 
+   "title": "2013-11-13 / 2013-11-14", 
+   "start": "2013-11-13", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2013-11-14", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=f098d2a95b81be48b57efb2a812d4d5a", 
+   "description": "Score de : 1.0", 
+   "title": "f098d2a95b81be48b57efb2a812d4d5a"
+  }, 
+  {
+   "end": "2014-02-15", 
+   "description": "Evenement entre 2014-02-14 et 2014-02-15", 
+   "title": "2014-02-14 / 2014-02-15", 
+   "start": "2014-02-14", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-02-15", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=b85d39c5ea00076d14312d1e2df68213", 
+   "description": "Score de : 1.0", 
+   "title": "b85d39c5ea00076d14312d1e2df68213"
+  }, 
+  {
+   "end": "2014-02-28", 
+   "description": "Evenement entre 2014-02-27 et 2014-02-28", 
+   "title": "2014-02-27 / 2014-02-28", 
+   "start": "2014-02-27", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-02-28", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=35c8561381789d3fe50ece4c7dfa4ea7", 
+   "description": "Score de : 1.0", 
+   "title": "35c8561381789d3fe50ece4c7dfa4ea7"
+  }, 
+  {
+   "end": "2014-03-06", 
+   "description": "Evenement entre 2014-03-05 et 2014-03-06", 
+   "title": "2014-03-05 / 2014-03-06", 
+   "start": "2014-03-05", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-03-06", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=eec4154cc338221bf450ede16413ef64", 
+   "description": "Score de : 1.0", 
+   "title": "eec4154cc338221bf450ede16413ef64"
+  }, 
+  {
+   "end": "2014-03-12", 
+   "description": "Evenement entre 2014-03-11 et 2014-03-12", 
+   "title": "2014-03-11 / 2014-03-12", 
+   "start": "2014-03-11", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-03-12", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=fc54d578a2fbc8475c640e1556f19e99", 
+   "description": "Score de : 1.0", 
+   "title": "fc54d578a2fbc8475c640e1556f19e99"
+  }, 
+  {
+   "end": "2014-03-16", 
+   "description": "Evenement entre 2014-03-15 et 2014-03-16", 
+   "title": "2014-03-15 / 2014-03-16", 
+   "start": "2014-03-15", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-03-16", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=f4f8af2c13946cf80a1d175e6c062c8c", 
+   "description": "Score de : 1.0", 
+   "title": "f4f8af2c13946cf80a1d175e6c062c8c"
+  }, 
+  {
+   "end": "2014-07-17", 
+   "description": "Evenement entre 2014-07-16 et 2014-07-17", 
+   "title": "2014-07-16 / 2014-07-17", 
+   "start": "2014-07-16", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-07-17", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=73f29837e27979601e713ad05b262358", 
+   "description": "Score de : 1.0", 
+   "title": "73f29837e27979601e713ad05b262358"
+  }, 
+  {
+   "end": "2014-08-05", 
+   "description": "Evenement entre 2014-08-04 et 2014-08-05", 
+   "title": "2014-08-04 / 2014-08-05", 
+   "start": "2014-08-04", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-08-05", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=4f032eebc71dac734eed81bbfebfa527", 
+   "description": "Score de : 1.0", 
+   "title": "4f032eebc71dac734eed81bbfebfa527"
+  }, 
+  {
+   "end": "2014-09-25", 
+   "description": "Evenement entre 2014-09-24 et 2014-09-25", 
+   "title": "2014-09-24 / 2014-09-25", 
+   "start": "2014-09-24", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-09-25", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=daa0b76ed51bb252f5415b911227493c", 
+   "description": "Score de : 1.0", 
+   "title": "daa0b76ed51bb252f5415b911227493c"
+  }, 
+  {
+   "end": "2014-10-07", 
+   "description": "Evenement entre 2014-10-06 et 2014-10-07", 
+   "title": "2014-10-06 / 2014-10-07", 
+   "start": "2014-10-06", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-10-07", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=5733dfcd009613956cf8eb2e2d43d121", 
+   "description": "Score de : 1.0", 
+   "title": "5733dfcd009613956cf8eb2e2d43d121"
+  }, 
+  {
+   "end": "2014-12-12", 
+   "description": "Evenement entre 2014-12-11 et 2014-12-12", 
+   "title": "2014-12-11 / 2014-12-12", 
+   "start": "2014-12-11", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2014-12-12", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=020d7ca45add40891e35f4a8fdd47433", 
+   "description": "Score de : 1.0", 
+   "title": "020d7ca45add40891e35f4a8fdd47433"
+  }, 
+  {
+   "end": "2015-01-22", 
+   "description": "Evenement entre 2015-01-21 et 2015-01-22", 
+   "title": "2015-01-21 / 2015-01-22", 
+   "start": "2015-01-21", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2015-01-22", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=9d8498e16b311e1dcf6d3cd8c0ce8373", 
+   "description": "Score de : 1.0", 
+   "title": "9d8498e16b311e1dcf6d3cd8c0ce8373"
+  }, 
+  {
+   "end": "2015-03-08", 
+   "description": "Evenement entre 2015-03-07 et 2015-03-08", 
+   "title": "2015-03-07 / 2015-03-08", 
+   "start": "2015-03-07", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2015-03-08", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=6e2a0ee586f1341fb865c4f8b0246105", 
+   "description": "Score de : 1.0", 
+   "title": "6e2a0ee586f1341fb865c4f8b0246105"
+  }, 
+  {
+   "end": "2015-04-17", 
+   "description": "Evenement entre 2015-04-16 et 2015-04-17", 
+   "title": "2015-04-16 / 2015-04-17", 
+   "start": "2015-04-16", 
+   "link": "", 
+   "durationEvent": "true"
+  }, 
+  {
+   "start": "2015-04-17", 
+   "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=ecce5ec56dc01a6bc320386dd71b88a0", 
+   "description": "Score de : 1.0", 
+   "title": "ecce5ec56dc01a6bc320386dd71b88a0"
+  }
+ ]
+}
