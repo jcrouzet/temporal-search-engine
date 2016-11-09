@@ -1,0 +1,55 @@
+;
+        function onLoad() {
+			var eventSource = new Timeline.DefaultEventSource();
+			var theme = Timeline.ClassicTheme.create(); // create the theme
+				theme.event.bubble.width = 400;   // modify it
+				theme.event.bubble.height = 400;
+				theme.event.track.height = 7; //espace entre les éléments
+				theme.event.tape.height = 7; //grossir la taille des bandes
+			var bandInfos = [
+				Timeline.createBandInfo({
+					eventSource:    eventSource,
+					date:           "Jun 28 2014 00:00:00 GMT",
+					width:          "60%", 
+					intervalUnit:   Timeline.DateTime.WEEK, 
+					intervalPixels: 200,
+					theme:          theme, // Apply the theme
+                    layout:         'original'  // original, overview, detailed
+
+				}),
+				Timeline.createBandInfo({
+					eventSource:    eventSource,
+					date:           "Jun 28 2014 00:00:00 GMT",
+					width:          "40%", 
+					intervalUnit:   Timeline.DateTime.YEAR, 
+					intervalPixels: 400,
+					theme:          theme, // Apply the theme
+                    layout:         'original'  // original, overview, detailed
+
+				})
+			];
+			bandInfos[1].syncWith = 0;
+			bandInfos[1].highlight = true;
+	  
+			tl = Timeline.create(document.getElementById("tla"), bandInfos);
+			eventSource.loadJSON(timeline_data,'.');
+		}
+        var resizeTimerID = null;
+        function onResize() {
+            if (resizeTimerID == null) {
+                resizeTimerID = window.setTimeout(function() {
+                    resizeTimerID = null;
+                    tl.layout();
+                }, 500);
+            }
+        }
+    </script>
+  </head>
+  <body onload="onLoad();" onresize="onResize();" style=" background-color:#EDEAFE;">
+    <div id="content">
+		<h1 style="font-weight: bold;width:200px;;margin:auto;margin-top: 70px;"> Vos résultats : </h1>
+      <script>Timeline.writeVersion('tl_ver')</script>
+      <div id="tla" class="timeline-default" style="height: 400px; margin-top: 50px; box-shadow: 1px 2px 0px silver;border: 2px grey solid;"></div>
+    </div>
+  </body>
+</html>
