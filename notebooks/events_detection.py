@@ -19,13 +19,13 @@ def peaks_detection(y, lag=5, thresh=3.5, influence=0.5):
                 signal[i] -= 1
             
             filteredY[i] = influence*y[i] + (1-influence)*filteredY[i-1]
-            avgFilter[i] = np.mean(y[(i-lag+1):i])
-            stdFilter[i] = np.std(y[(i-lag+1):i])
+            avgFilter[i] = np.mean(filteredY[(i-lag+1):i])
+            stdFilter[i] = np.std(filteredY[(i-lag+1):i])
             
         else:
             filteredY[i] = y[i]
-            avgFilter[i] = np.mean(y[(i-lag+1):i])
-            stdFilter[i] = np.std(y[(i-lag+1):i])
+            avgFilter[i] = np.mean(filteredY[(i-lag+1):i])
+            stdFilter[i] = np.std(filteredY[(i-lag+1):i])
             
     return((signal, avgFilter, stdFilter))
 
