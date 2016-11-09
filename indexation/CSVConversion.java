@@ -1,4 +1,3 @@
-package csvConversion;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -18,13 +17,13 @@ public class CSVConversion {
 		try {
 			
 			// On crée le nouveau fichier de texte
-			File result = new File("/home/nikita/Documents/data-elasticsearch/result.csv");
+			File result = new File("/media/jonathan/Jonathan CROUZET/Documents/ProjetREI/result.csv");
 			
 			FileWriter fw = new FileWriter (result);
 			BufferedWriter bw = new BufferedWriter (fw);
 			PrintWriter out = new PrintWriter (bw);
 
-			File dir = new File("/media/nikita/NikitaDD/text");
+			File dir = new File("/media/jonathan/Jonathan CROUZET/Documents/ProjetREI/text");
 			File[] years = dir.listFiles();
 
 			if (years != null) {
