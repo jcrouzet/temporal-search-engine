@@ -7,9 +7,11 @@ def timeline_json(events, dates, query):
     """
     """
     tl_json = { "events": [] }
-    num=0
+    num = 0
+
     for event in events:
-	num+=1
+
+        num = num+1
         d_start = dates[event[0]-1]
         d_end = dates[event[1]-1]
 
@@ -35,6 +37,8 @@ def timeline_json(events, dates, query):
 
         tl_json['events'].append(tmp)
 
+    return json.dumps(tl_json)
+
     # Sauvegarde du `js`
-    f = open('results.json', 'w')
-    json.dump(tl_json, f, indent=1)
+    # f = open('results.json', 'w')
+    # json.dump(tl_json, f, indent=1)

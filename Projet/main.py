@@ -5,8 +5,7 @@ import numpy as np
 
 from query import *
 from events_detection import *
-from timeline_json1 import *
-from Affichage import *
+from timeline_json import *
 
 class Usage(Exception):
     def __init__(self, msg):
@@ -16,12 +15,11 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    if len(argv) != 4:
-        print >>sys.stderr, "Usage: " + argv[0] + " <query> <date_debut> <date_fin>"
-        print >>sys.stderr, "où les dates sont au format \"yyyy-MM-dd\""
+    if len(argv) != 2:
+        print >>sys.stderr, "usage: " + argv[0] + " <query>"
         return 2
 
-    hist, dates = query_hist(argv[1],argv[2],argv[3])
+    hist, dates = query_hist(argv[1])
 
     # Peak detection
     lag = 60
@@ -34,10 +32,7 @@ def main(argv=None):
     events = events_list(sig)
 
     # Timeline creation
-    res_json = timeline_json(events, dates, argv[1])
-
-    # HTML creation
-    html_creation(res_json)
+    timeline_json(events, dates)
 
 if __name__ == "__main__":
     sys.exit(main())

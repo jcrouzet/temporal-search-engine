@@ -1,0 +1,61 @@
+<html>
+  <head>
+   <script src="http://api.simile-widgets.org/timeline/2.3.1/timeline-api.js" type="text/javascript"></script>
+    <script>
+        var tl;
+		var timeline_data;	
+		timeline_data = {"events": [{"start": "2013-09-17", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=20a8ca1b0ac607484cc735ea9ae29c71", "description": "Score de : 1.0/n20a8ca1b0ac607484cc735ea9ae29c71", "title": 1}, {"end": "2013-09-17", "description": "Evenement entre 2013-09-16 et 2013-09-17", "title": "", "start": "2013-09-16", "link": "", "durationEvent": "true"}, {"start": "2013-12-23", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=58580c510ae1da831178664ee94c6ac5", "description": "Score de : 1.0/n58580c510ae1da831178664ee94c6ac5", "title": 2}, {"end": "2013-12-24", "description": "Evenement entre 2013-12-23 et 2013-12-24", "title": "", "start": "2013-12-23", "link": "", "durationEvent": "true"}, {"start": "2014-01-20", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=79c6c9fb0bb285d6d4805049309a7722", "description": "Score de : 1.0/n79c6c9fb0bb285d6d4805049309a7722", "title": 3}, {"end": "2014-01-20", "description": "Evenement entre 2014-01-19 et 2014-01-20", "title": "", "start": "2014-01-19", "link": "", "durationEvent": "true"}, {"start": "2014-03-21", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=7cbdfad482a6af9f4736f13204e8b821", "description": "Score de : 1.0/n7cbdfad482a6af9f4736f13204e8b821", "title": 4}, {"end": "2014-03-21", "description": "Evenement entre 2014-03-19 et 2014-03-21", "title": "", "start": "2014-03-19", "link": "", "durationEvent": "true"}, {"start": "2014-06-02", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=25532cd73ff9f661b02f3363d7691ef3", "description": "Score de : 1.0/n25532cd73ff9f661b02f3363d7691ef3", "title": 5}, {"end": "2014-06-02", "description": "Evenement entre 2014-06-01 et 2014-06-02", "title": "", "start": "2014-06-01", "link": "", "durationEvent": "true"}, {"start": "2014-06-07", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=b409807763f0c309ada39150ec437bea", "description": "Score de : 1.0/nb409807763f0c309ada39150ec437bea", "title": 6}, {"end": "2014-06-07", "description": "Evenement entre 2014-06-04 et 2014-06-07", "title": "", "start": "2014-06-04", "link": "", "durationEvent": "true"}, {"start": "2014-07-13", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=161c0290a40a29871991611cb7d004e7", "description": "Score de : 1.0/n161c0290a40a29871991611cb7d004e7", "title": 7}, {"end": "2014-07-13", "description": "Evenement entre 2014-07-12 et 2014-07-13", "title": "", "start": "2014-07-12", "link": "", "durationEvent": "true"}, {"start": "2015-01-14", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=3580d165302291687143e38fc0e067fa", "description": "Score de : 1.0/n3580d165302291687143e38fc0e067fa", "title": 8}, {"end": "2015-01-14", "description": "Evenement entre 2015-01-13 et 2015-01-14", "title": "", "start": "2015-01-13", "link": "", "durationEvent": "true"}, {"start": "2015-01-29", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=c9920a38b13ab2b73868ecc65eeb06af", "description": "Score de : 1.0/nc9920a38b13ab2b73868ecc65eeb06af", "title": 9}, {"end": "2015-01-29", "description": "Evenement entre 2015-01-28 et 2015-01-29", "title": "", "start": "2015-01-28", "link": "", "durationEvent": "true"}, {"start": "2015-07-13", "link": "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=b4c37cc73d555233272e476549d49661", "description": "Score de : 1.0/nb4c37cc73d555233272e476549d49661", "title": 10}, {"end": "2015-07-13", "description": "Evenement entre 2015-07-12 et 2015-07-13", "title": "", "start": "2015-07-12", "link": "", "durationEvent": "true"}]};
+        function onLoad() {
+			var eventSource = new Timeline.DefaultEventSource();
+			var theme = Timeline.ClassicTheme.create(); // create the theme
+				theme.event.bubble.width = 400;   // modify it
+				theme.event.bubble.height = 400;
+				theme.event.track.height = 7; //espace entre les éléments
+				theme.event.tape.height = 7; //grossir la taille des bandes
+			var bandInfos = [
+				Timeline.createBandInfo({
+					eventSource:    eventSource,
+					date:           "Jun 28 2014 00:00:00 GMT",
+					width:          "60%", 
+					intervalUnit:   Timeline.DateTime.WEEK, 
+					intervalPixels: 200,
+					theme:          theme, // Apply the theme
+                    layout:         'original'  // original, overview, detailed
+
+				}),
+				Timeline.createBandInfo({
+					eventSource:    eventSource,
+					date:           "Jun 28 2014 00:00:00 GMT",
+					width:          "40%", 
+					intervalUnit:   Timeline.DateTime.YEAR, 
+					intervalPixels: 400,
+					theme:          theme, // Apply the theme
+                    layout:         'original'  // original, overview, detailed
+
+				})
+			];
+			bandInfos[1].syncWith = 0;
+			bandInfos[1].highlight = true;
+	  
+			tl = Timeline.create(document.getElementById("tla"), bandInfos);
+			eventSource.loadJSON(timeline_data,'.');
+		}
+        var resizeTimerID = null;
+        function onResize() {
+            if (resizeTimerID == null) {
+                resizeTimerID = window.setTimeout(function() {
+                    resizeTimerID = null;
+                    tl.layout();
+                }, 500);
+            }
+        }
+    </script>
+  </head>
+  <body onload="onLoad();" onresize="onResize();" style=" background-color:#EDEAFE;">
+    <div id="content">
+		<h1 style="font-weight: bold;width:200px;;margin:auto;margin-top: 70px;"> Vos résultats : </h1>
+      <script>Timeline.writeVersion('tl_ver')</script>
+      <div id="tla" class="timeline-default" style="height: 400px; margin-top: 50px; box-shadow: 1px 2px 0px silver;border: 2px grey solid;"></div>
+    </div>
+  </body>
+</html>

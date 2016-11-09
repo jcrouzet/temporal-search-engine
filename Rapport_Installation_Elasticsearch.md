@@ -35,6 +35,12 @@ On vérifie que tout fonctionne avec un :
 java -version
 ~~~
 
+Il nous reste à augmenter le nombre de fichier ouvrable par Java :
+
+~~~
+ulimit -c unlimited
+~~~
+
 Ceci fait, on se lance dans l'installation d'Elasticsearch.
 
 ## Elasticsearch 5.0
@@ -134,7 +140,7 @@ sudo chown logstash:logstash -R /etc/logstash/
 sudo chown logstash:logstash -R /var/log/logstash/
 ~~~
 
-### Configuration [Pas terminé]
+### Configuration
 
 Logstash utilise 3 étapes de traitement pour message arrivant : la
 première consistant au traitement des entrées (`input`), la seconde
@@ -142,52 +148,46 @@ traitant le parsing (`filter`) et la dernière traitant la sortie
 (`output`).
 
 - Pour le premier plugin, nous avons dû récupérer les articles sur notre
-serveur de façon à les indexer ensuite. Ainsi il faut indexer des fichiers
-entiers. Le plugin `file` n'est pas fait pour indexer des fichiers entiers,
-néanmoins, on peut tricher un peu en mettant l'option `start_position =>
-beginning` et `sincedb_path => "/dev/null"`. D'où le plugin :
+serveur de façon à les indexer ensuite. Le problème de Logstash est qu'on ne
+peut pas simplement indexer un document (au sens de Logstash) de plusieurs
+lignes. Ainsi nous avons procédé à une transformation de la base de données de
+façon a créer un fichier csv (coma-separated values) de tous les articles, avec
+pour chaque ligne la date et le contenu de l'article.
 
 ~~~
 # ============================ 01_input.conf ===================================
 input {
   file {
-    path => "/media/nikita/NikitaDD/text/*/*/*/*.txt"
-    start_position => beginning
-    sincedb_path => "/dev/null"
+    path => "/home/nikita/Documents/data-elasticsearch/result.csv"
+    type => "article"
   }
 }
 ~~~
+
+Ce fichier est généré à l'aide du code java `csv.java`. L'exécuter permet le
+remplissage du fichier, et cela crée un flux qui est indexable par Logstash dans
+Elasticsearch.
 
 - Pour le second plugin, notre champ `message` sera constitué du corps épuré de
 l'article, et ne nécessite donc à priori aucun traitement. Il faudra cependant
 ajouter le champ correspondant à la date de parution de l'article, et celle-ci
 est notamment récupérable, tout comme l'id de l'article, dans le titre du
-fichier. On utilise donc un plugin de parsing `grok` d'expression régulières.
-
-Pour définir les expressions régulières proprement, je crée un fichier
-`grok_patterns.conf` dans le répertoire `/etc/logstash` pour définir ce que l'on
-devrait utiliser pour matcher les titres.
-
-~~~
-# ========================== grok_patterns.conf ================================
-ANNEE_ARTICLE (?>\d\d\d\d)
-MOIS_ARTICLE (?>\d\d)
-JOUR_ARTICLE (?>\d\d)
-~~~
+fichier. Une transformation est ajoutée au texte de l'article : pour qu'il soit
+facilement indexable, on transforme les retours à la ligne par des tabulations.
 
 ~~~
 # ============================ 11_filter.conf ==================================
 filter {
-  grok {
-    patterns_dir => ["/etc/logstash/grok_patterns.conf"]
-    match => {
-      "path" => "%{GREEDYDATA}/%{ANNEE_ARTICLE:annee}%{MOIS_ARTICLE:mois}%{JOUR_ARTICLE}_%{GREEDYDATA:id}.txt"
-    }
-    add_field => {
-      "date" => "%{annee}-%{mois}-%{jour}"
-    }
-    remove_field => ["annee","mois","jour"]
+  csv {
+    columns => [ "date_art", "id_art", "article" ]
+    separator => ";!"
+    remove_field => ["path", "host", "message"]
   }
+
+  date {
+    match => [ "date_art", "YYYY-MM-dd" ]
+  }
+
 }
 ~~~
 
@@ -199,7 +199,7 @@ articles dans Elasticsearch, et plus précisément dans l'instance locale.
 output {
   elasticsearch {
     hosts => ["localhost:9200"]
-    index => "spliine-%{+YYYY.MM.dd}"
+    index => "spliine"
   }
 }
 ~~~
