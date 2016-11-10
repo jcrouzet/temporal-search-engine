@@ -17,7 +17,7 @@ def main(argv=None):
         argv = sys.argv
 
     if len(argv) != 4:
-        print >>sys.stderr, "Usage: " + argv[0] + " <query> <date_debut> <date_fin>"
+        print("Usage: " + argv[0] + " <query> <date_debut> <date_fin>", file=sys.stderr)
         return 2
 
     hist, dates = query_hist(argv[1],argv[2],argv[3])

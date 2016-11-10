@@ -1,8 +1,14 @@
 import pandas as pd
 import numpy as np
+import statsmodels.api as sm
 
 # Inspired from http://stackoverflow.com/questions/22583391/peak-signal-detection-in-realtime-timeseries-data
 def peaks_detection(y, lag=5, thresh=3.5, influence=0.5):
+    assert len(y) > lag
+    
+    #res = sm.tsa.seasonal_decompose(y, freq=7)
+    #y = res.trend
+    
     signal = np.zeros(len(y), int)
     
     filteredY = np.full(len(y), y, dtype=float)

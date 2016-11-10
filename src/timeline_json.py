@@ -19,10 +19,10 @@ def timeline_json(events, dates, query):
         tmp = {}
         res_req = query_articles(query, d_start, d_end)
 
-        tmp["start"] = res_req["hits"]["hits"][0]["_source"]["date_art"].encode('ascii','ignore')
+        tmp["start"] = res_req["hits"]["hits"][0]["_source"]["date_art"]
         tmp["title"] = num
-        tmp["description"] = "Score de : " + str(res_req["hits"]["hits"][0]["_score"])+ "/n" + res_req["hits"]["hits"][0]["_source"]["id_art"].encode('ascii','ignore')
-        tmp["link"] = "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=" + res_req["hits"]["hits"][0]["_source"]["id_art"].encode('ascii','ignore')
+        tmp["description"] = "Score de : " + str(res_req["hits"]["hits"][0]["_score"]) + "\n" + res_req["hits"]["hits"][0]["_source"]["id_art"]
+        tmp["link"] = "http://localhost:5601/app/kibana#/doc/spliine/spliine/article?id=" + res_req["hits"]["hits"][0]["_source"]["id_art"]
 
         tl_json['events'].append(tmp)
 
