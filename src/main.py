@@ -16,11 +16,17 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    if len(argv) != 4:
+    if len(argv) == 2:
+        begin = "2012-04-01"
+        end = "2015-08-31"
+    elif len(argv) != 4:
         print("Usage: " + argv[0] + " <query> <date_debut> <date_fin>", file=sys.stderr)
         return 2
+    else:
+        begin = argv[2]
+        end = argv[3]
 
-    hist, dates = query_hist(argv[1],argv[2],argv[3])
+    hist, dates = query_hist(argv[1],begin,end)
 
     # Peak detection
     lag = 60
