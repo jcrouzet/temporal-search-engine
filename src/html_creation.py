@@ -15,7 +15,7 @@ def html_creation(res_json):
     touch('./results/page.html')
     begin = open('./results/begin.txt','r')
     end = open('./results/end.txt','r')
-    f = open('./results/page.html', 'w')
+    f = open('./results/temporal_search_results.html', 'w')
     coppy(begin,f)
     f.write(res_json)
     coppy(end,f)

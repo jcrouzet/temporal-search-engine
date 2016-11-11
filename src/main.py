@@ -28,6 +28,10 @@ def main(argv=None):
 
     hist, dates = query_hist(argv[1],begin,end)
 
+    if len(hist) == 0:
+      print("Pas de résultat :(")
+      return 2
+
     # Peak detection
     lag = 60
     thresh = 3.5
