@@ -2,7 +2,7 @@
         function onLoad() {
 			var eventSource = new Timeline.DefaultEventSource();
 			var theme = Timeline.ClassicTheme.create(); // create the theme
-				theme.event.bubble.width = 400;   // modify it
+				theme.event.bubble.width = 700;   // modify it
 				theme.event.bubble.height = 400;
 				theme.event.track.height = 7; //espace entre les éléments
 				theme.event.tape.height = 7; //grossir la taille des bandes
