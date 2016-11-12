@@ -24,14 +24,14 @@ def valeur_bruit(n,k=0.33): #Selection de 33 %
 def peekadpt(hist,k1=0.33,k2=0.33):
     #mp.plot(hist)
     #mp.show()
-    bruit=valeur_bruit(hist,k1)
     Hist=np.array(hist)
     l=len(Hist)
-    Hist_liss = ( Hist[0:l-5] + Hist[1:l-4] + Hist[2:l-3] + Hist[3:l-2] + Hist[4:l-1] + Hist[5:l-0] )/ 6
-    Hist_liss = np.concatenate( ( np.array( [Hist_liss[0], Hist_liss[0], Hist_liss[0]] ), Hist_liss ) )
-
+    Hist_liss=(Hist[0:l-5]+Hist[1:l-4]+Hist[2:l-3]+Hist[3:l-2]+Hist[4:l-1]+Hist[5:l-0])/6
+    Hist_liss=np.concatenate((np.array([Hist_liss[0],Hist_liss[0],Hist_liss[0]]),Hist_liss))
+    bruit=valeur_bruit(Hist_liss,k1)
     taille=[]
     duree=[]
+
     for j in range(1,100):
         matflag=(Hist_liss>(((1+(j/10))*bruit)))
         flag=False
@@ -50,5 +50,8 @@ def peekadpt(hist,k1=0.33,k2=0.33):
         taille.append(len(duree[j-1]))
     taille=np.array(taille)
     l=len(taille)
-    seuil=np.argmin(abs(taille-k2*max(taille)))
-    return(duree[seuil-1])
+    if (taille[0]<3):
+        seuil=0
+    else:
+        seuil=np.argmin(abs(taille-k2*max(taille)))
+    return(duree[seuil])

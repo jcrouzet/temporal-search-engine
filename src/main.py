@@ -38,19 +38,28 @@ def main(argv=None):
 
     hist, dates = query_hist(argv[1],begin,end)
 
-    if len(hist) == 0:
+    len_hist = len(hist)
+
+    if len_hist == 0:
       print("Pas de résultat :(")
       return 2
 
-    # Peak detection
-    if basic==0 :
-        events = peekadpt(hist)
+    if len_hist <= 10:
+        events = [(1,len_hist)]
     else:
-        lag = 60
-        thresh = 3.5
-        influence = 0.01
-        sig, avg, std = peaks_detection(hist, lag, thresh, influence)
-        events = events_list(sig)
+        # When less than 60 counts, using basic pics detection
+        if len_hist <= 60:
+            basic = 0
+
+        # Peak detection
+        if basic==0 :
+            events = peekadpt(hist)
+        else:
+            lag = 60
+            thresh = 3.5
+            influence = 0.01
+            sig, avg, std = peaks_detection(hist, lag, thresh, influence)
+            events = events_list(sig)
 
     # Timeline creation
     res_json = timeline_json(events, dates, argv[1])
