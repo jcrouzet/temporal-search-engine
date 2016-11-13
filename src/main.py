@@ -1,5 +1,4 @@
 import sys
-import getopt
 import subprocess
 import argparse
 
@@ -50,7 +49,7 @@ def main(argv):
     if args.size:
         size = args.size
 
-    # If quer is "", raise error
+    # If quer is "", raises error (this case might has been raised earlier)
     if quer=="":
         usage()
         sys.exit()
