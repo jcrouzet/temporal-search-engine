@@ -44,11 +44,11 @@ def events_list(signal, hist, size=20):
         if signal[i] == 1:
             start = i
             end = i
-            tmp = hist[start]
+            tmp = hist[start-1]
             while end < len(signal):
                 if signal[end] == signal[start]:
                     end += 1
-                    tmp += hist[end]
+                    tmp += hist[end-1]
                 else:
                     break
 

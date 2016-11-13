@@ -1,6 +1,7 @@
 import sys
 import getopt
 import subprocess
+import argparse
 
 import numpy as np
 
@@ -15,39 +16,47 @@ class Usage(Exception):
     def __init__(self, msg):
         self.msg = msg
 
-def main(argv=None):
-    if argv is None:
-        argv = sys.argv
+def main(argv):
 
-    # Default case, without timerange
-    if len(argv) == 2:
-        begin = "2012-04-01"
-        end = "2015-08-31"
-        basic=1
+    parser = argparse.ArgumentParser()
+    parser.add_argument("query",
+                    help="This is your query. This is a needed argument")
+    parser.add_argument("-b", "--begin",
+                    help="Timerange start with format yyyy-MM-dd")
+    parser.add_argument("-e", "--end",
+                    help="Timerange end with format yyyy-MM-dd")
+    parser.add_argument("-p", "--basicpeak", action="store_true",
+                    help="Use basic peak detection")
+    parser.add_argument("-s", "--size", type=int,
+                    help="Configure number of results")
+    args = parser.parse_args()
 
-    # Use of basic peak detection, without timerange
-    elif len(argv) == 3 and argv[2]=="basic":
-        begin = "2012-04-01"
-        end = "2015-08-31"
-        basic=0
+    begin = "2012-04-01"
+    end = "2015-08-31"
+    size = 20
+    basic = 1
 
-    # Use of basic peak detection, with timerange
-    elif len(argv) == 5 and argv[4]=="basic":
-        basic=0
+    quer = args.query
 
-    # Default case, with timerange
-    elif len(argv) == 4:
-        begin = argv[2]
-        end = argv[3]
-        basic = 1
+    if args.begin:
+        begin = args.begin
 
-    # Error case, request
-    else :
-        print("Usage: " + argv[0] + " <query> [<date_debut> <date_fin>] [basic]", file=sys.stderr)
-        return 2
+    if args.end:
+        end = args.end
+
+    if args.basicpeak:
+        basic = 0
+
+    if args.size:
+        size = args.size
+
+    # If quer is "", raise error
+    if quer=="":
+        usage()
+        sys.exit()
 
     # Query Elasticsearch
-    hist, dates = query_hist(argv[1],begin,end)
+    hist, dates = query_hist(quer,begin,end)
 
     len_hist = len(hist)
 
@@ -73,12 +82,11 @@ def main(argv=None):
             lag = 60
             thresh = 3.5
             influence = 0.01
-            size = 20
             sig, avg, std = peaks_detection(hist, lag, thresh, influence)
             events = events_list(sig, hist, size)
 
     # Timeline creation
-    res_json = timeline_json(events, dates, argv[1])
+    res_json = timeline_json(events, dates, quer)
 
     # HTML creation
     html_creation(res_json)
@@ -87,4 +95,7 @@ def main(argv=None):
     subprocess.run(["firefox", "results/temporal_search_results.html"])
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main(sys.argv[1:])
+
+#if __name__ == "__main__":
+#    sys.exit(main())
