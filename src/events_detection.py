@@ -4,10 +4,8 @@ import statsmodels.api as sm
 
 # Inspired from http://stackoverflow.com/questions/22583391/peak-signal-detection-in-realtime-timeseries-data
 def peaks_detection(y, lag=5, thresh=3.5, influence=0.5):
-    assert len(y) > lag
 
-    #res = sm.tsa.seasonal_decompose(y, freq=7)
-    #y = res.trend
+    assert len(y) > lag
 
     signal = np.zeros(len(y), int)
 
@@ -36,22 +34,28 @@ def peaks_detection(y, lag=5, thresh=3.5, influence=0.5):
     return((signal, avgFilter, stdFilter))
 
 
-def events_list(signal):
+def events_list(signal, hist, size=20):
+
     events = list()
+    amplitude = list()
     i = 0
+
     while i < len(signal):
         if signal[i] == 1:
             start = i
             end = i
+            tmp = hist[start]
             while end < len(signal):
                 if signal[end] == signal[start]:
                     end += 1
+                    tmp += hist[end]
                 else:
                     break
 
             events.append((start, end))
+            amplitude.append(tmp)
             i = end + 1
         else:
             i += 1
 
-    return(events)
+    return([x for (y, x) in sorted(zip(amplitude, events), reverse=True)][:(min(len(events), size))])
