@@ -1,6 +1,6 @@
 ### Indexation des articles
 
-Une fois qu'elasticsearch, logstash sont installés, vous pouvez indexer la base
+Une fois qu'Elasticsearch et Logstash sont installés, vous pouvez indexer la base
 de données (le dossier `text` de `ProjetREI`).
 
 # Indexation
@@ -10,7 +10,7 @@ de données (le dossier `text` de `ProjetREI`).
 Pensez à modifier l'emplacement du dossier `text` et celui du fichier que
 Logstash observe.
 
-## Demmarrer l'indexation
+## Démarrer l'indexation
 
 Pour compiler et executer le script de conversion :
 
@@ -19,7 +19,7 @@ javac indexation/CSVConversion.java
 java CSVConversion
 ~~~
 
-## Verifier que logstash a tout indexer
+## Vérifier que logstash a tout indexé
 
 Dès le début de l'exécution du script, la commande suivante vous permet
 d'observer l'index (`spliine` si vous avez les mêmes fichiers de configuration
