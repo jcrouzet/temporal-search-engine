@@ -15,3 +15,24 @@ hearthquakes that were dealt with in the newspapers.
 
 The different mesures of peak detection, and a longer explanation of the project
 is available with the reports.
+
+## Installation and configuration
+
+We use Python 3.
+
+Please refer to `Rapport_Installation_Elasticsearch.md`,
+`Rapport_Python_Elasticsearch` and `Rapport_Indexation.md` for installing and
+configuring Elasticsearch, the python module `elasticsearch-py` and for indexing
+the database.
+
+## Launch
+
+Execute the `main.py` script. For more information :
+
+~~~
+python scr/main.py --help
+~~~
+
+## Authors
+
+Matthieu RÉ, Jonathan CROUZET, Kevin PASINI and Amal TARGHI
